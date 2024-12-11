@@ -69,6 +69,12 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
+      path: '/summarization',
+      name: 'summarization',
+      component: () => import('@/views/SummarizationView.vue'),
+    },
+    
+    {
       path: '/upcoming-exams',
       name: 'UpcomingExams',
       component: () => import('@/views/UpcomingExams.vue')

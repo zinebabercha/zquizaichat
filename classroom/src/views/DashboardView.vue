@@ -167,7 +167,8 @@ import {
   ChatBubbleLeftRightIcon,
   ClockIcon,
   HeartIcon,
-  ChartBarIcon
+  ChartBarIcon,
+  DocumentTextIcon
 } from '@heroicons/vue/24/outline';
 
 const router = useRouter();
@@ -182,6 +183,8 @@ const navigationItems = [
   { name: 'Calendar', href: '/calendar', icon: ClockIcon, current: false },
   { name: 'Relaxation', href: '/relaxation', icon: HeartIcon, current: false },
   { name: 'Analytics', href: '/analytics', icon: ChartBarIcon, current: false },
+  { name: 'Summarization', href: '/summarization', icon: DocumentTextIcon, current: false }, // Add this
+
 ];
 
 const stats = ref([
