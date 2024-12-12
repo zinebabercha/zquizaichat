@@ -1,7 +1,24 @@
 <!-- src/views/AnalyticsView.vue -->
 <template>
   <div class="min-h-screen bg-gray-100 p-8">
-    <div class="max-w-7xl mx-auto">
+    <nav class="fixed top-0 left-0 h-full w-64 bg-indigo-600 text-white">
+      <div class="flex items-center justify-center h-16 bg-indigo-700">
+        <h2 class="text-xl font-bold">AI Classroom</h2>
+      </div>
+      <div class="p-4">
+        <router-link
+          v-for="item in navigationItems"
+          :key="item.name"
+          :to="item.href"
+          class="flex items-center p-2 rounded-lg hover:bg-indigo-700 mb-1"
+          :class="{ 'bg-indigo-700': item.current }"
+        >
+          <component :is="item.icon" class="h-6 w-6 mr-3" />
+          {{ item.name }}
+        </router-link>
+      </div>
+    </nav>
+    <div class="ml-64 p-8">
       <h1 class="text-2xl font-bold mb-6">Analytics Dashboard</h1>
       <router-link 
           to="/dashboard" 
@@ -77,6 +94,27 @@ ChartJS.register(
   PointElement,
   BarElement
 );
+
+import {
+  HomeIcon,
+  AcademicCapIcon,
+  ChatBubbleLeftRightIcon,
+  ClockIcon,
+  HeartIcon,
+  ChartBarIcon,
+  DocumentTextIcon
+} from '@heroicons/vue/24/outline';
+
+const navigationItems = [
+  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: false },
+  { name: 'Quiz', href: '/quiz', icon: AcademicCapIcon, current: false },
+  { name: 'Chat', href: '/chat', icon: ChatBubbleLeftRightIcon, current: false },
+  { name: 'Calendar', href: '/calendar', icon: ClockIcon, current: false },
+  { name: 'Relaxation', href: '/relaxation', icon: HeartIcon, current: false },
+  { name: 'Analytics', href: '/analytics', icon: ChartBarIcon, current: true },
+  { name: 'Summarization', href: '/summarization', icon: DocumentTextIcon, current: false }, // Add this
+
+];
 
 const quizStore = useQuizStore();
 const authStore = useAuthStore();

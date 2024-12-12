@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "vue3-markdown-it": "^1.0.10"
+  }
+}
